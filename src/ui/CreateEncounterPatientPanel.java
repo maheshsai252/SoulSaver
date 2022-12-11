@@ -5,50 +5,55 @@
 package ui.encounter;
 
 import Services.ComboItem;
+import Services.ValidationServices;
 import database.DoctorService;
 import database.EncounterService;
 import database.PatientService;
 import database.VitalSignService;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import javax.swing.SpinnerDateModel;
 import model.Doctor;
 import model.Encounter;
 import model.Patient;
 import model.VitalSigns;
-import Services.*;
-import java.util.Date;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerDateModel;
 
 /**
  *
  * @author somes
  */
-public class CreateEncounterPanel extends javax.swing.JPanel {
+public class CreateEncounterPatientPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateEncounterPanel
+     * Creates new form CreateEncounterPatientPanel
      */
-    
+   
     PatientService ps = new PatientService();
     DoctorService ds = new DoctorService();
     VitalSignService vs = new VitalSignService();
     JSplitPane mainPanel;
     String types[] = {"General","Surgery"};
     ArrayList<Component> al;
-    public CreateEncounterPanel(JSplitPane mainPanel, ArrayList<Component> al) {
+    Patient p;
+    public CreateEncounterPatientPanel(Patient p, JSplitPane mainPanel, ArrayList<Component> al) {
         initComponents();
         this.al = al;
         this.mainPanel = mainPanel;
-        ArrayList<Patient> patients = this.ps.getAllPatients();
-        if(patients!=null) {
-        for(Patient patient: patients) {
-            this.boxPatients.addItem(new ComboItem(patient.getName(),patient.getId()));
+        this.p=p;
+      
+         this.boxVitalSigns.removeAllItems();
+       
+        String patientId = this.p.getId();
+        ArrayList<VitalSigns> vss = this.vs.getAllvitalsignsOfPatient(patientId);
+        if(vss == null) {
+            return;
         }
+        for(VitalSigns v: vss) {
+            this.boxVitalSigns.addItem(new ComboItem(v.getDate()+" BP : "+v.getBloodPressure()+" heart rate: "+v.getHeartRate(), v.getId()));
         }
-        
         ArrayList<Doctor> doctors = this.ds.getAllDoctors();
         if(doctors!=null) {
         for(Doctor doctor: doctors) {
@@ -69,10 +74,8 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        boxPatients = new javax.swing.JComboBox<>();
         boxVitalSigns = new javax.swing.JComboBox<>();
         boxDoctors = new javax.swing.JComboBox<>();
         btnAdd = new javax.swing.JButton();
@@ -86,17 +89,9 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Create Encounter");
 
-        jLabel2.setText("Patient");
-
         jLabel3.setText("Doctor");
 
         jLabel4.setText("Vital Sign");
-
-        boxPatients.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxPatientsActionPerformed(evt);
-            }
-        });
 
         boxVitalSigns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +146,6 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(278, 278, 278)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
@@ -159,7 +153,6 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
                         .addGap(72, 72, 72)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boxVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxPatients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(boxDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(timeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,11 +175,7 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(btnBack)))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(boxPatients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(114, 114, 114)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(boxVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,37 +211,19 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 586, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 8, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 9, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void boxPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxPatientsActionPerformed
-        // TODO add your handling code here:
-        //        this.boxVitalSigns.removeAll();
-        this.boxVitalSigns.removeAllItems();
-        Object item = this.boxPatients.getSelectedItem();
-        if(item == null) {
-            return;
-        }
-        String patientId = ((ComboItem)item).getValue();
-        ArrayList<VitalSigns> vss = this.vs.getAllvitalsignsOfPatient(patientId);
-        if(vss == null) {
-            return;
-        }
-        for(VitalSigns v: vss) {
-            this.boxVitalSigns.addItem(new ComboItem(v.getDate()+" BP : "+v.getBloodPressure()+" heart rate: "+v.getHeartRate(), v.getId()));
-        }
-    }//GEN-LAST:event_boxPatientsActionPerformed
 
     private void boxVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxVitalSignsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxVitalSignsActionPerformed
-    void updatecharges() {
+void updatecharges() {
         Object item = this.boxDoctors.getSelectedItem();
         if(item == null) {
             return;
@@ -271,21 +242,17 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
     }
     private void boxDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxDoctorsActionPerformed
         // TODO add your handling code here:
-        
+
         updatecharges();
-        
+
     }//GEN-LAST:event_boxDoctorsActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        Object item = this.boxPatients.getSelectedItem();
         Date cd = ((SpinnerDateModel)timeSpinner.getModel()).getDate();
         System.out.println(cd);
-        if(item == null) {
-            JOptionPane.showMessageDialog(this, "patient can't be null");
-            return;
-        }
-        String patientid = ((ComboItem)item).getValue();
+     
+        String patientid = this.p.getId();
 
         Object item1 = this.boxVitalSigns.getSelectedItem();
         if(item1==null) {
@@ -299,10 +266,10 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "doctor can't be null");
             return;
         }
-//        if(this.jDateChooser1.getDate() == null) {
-//            JOptionPane.showMessageDialog(this, "date can't be null");
-//            return;
-//        }
+        //        if(this.jDateChooser1.getDate() == null) {
+            //            JOptionPane.showMessageDialog(this, "date can't be null");
+            //            return;
+            //        }
         String doctorid = ((ComboItem)item2).getValue();
         String type = types[this.jComboBox1.getSelectedIndex()];
         if((this.lblCharge.getText().isEmpty()) && !(ValidationServices.isNumeric(this.lblCharge.getText()))) {
@@ -331,13 +298,11 @@ public class CreateEncounterPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<ComboItem> boxDoctors;
-    private javax.swing.JComboBox<ComboItem> boxPatients;
     private javax.swing.JComboBox<ComboItem> boxVitalSigns;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
