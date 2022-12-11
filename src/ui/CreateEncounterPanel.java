@@ -24,7 +24,7 @@ import javax.swing.SpinnerDateModel;
 
 /**
  *
- * @author somesh
+ * @author somes
  */
 public class CreateEncounterPanel extends javax.swing.JPanel {
 
