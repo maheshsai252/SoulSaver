@@ -8,8 +8,6 @@ package Services;
  *
  * @author maheshsai
  */
-import weka.core.Instances;
-import weka.classifiers.evaluation.NumericPrediction;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,14 +18,7 @@ import org.jfree.data.statistics.Regression;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import weka.classifiers.timeseries.WekaForecaster;
-import weka.filters.supervised.attribute.TSLagMaker;
 
-import weka.classifiers.Evaluation;
-import weka.classifiers.Classifier;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.converters.ArffLoader; 
 public class ForecastingService {
   
   public ForecastingService() {
