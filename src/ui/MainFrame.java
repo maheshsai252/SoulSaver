@@ -72,13 +72,13 @@ public class MainFrame extends javax.swing.JFrame {
         controlPanel = new javax.swing.JPanel();
         controlLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         newuserLabel = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,13 +91,6 @@ public class MainFrame extends javax.swing.JFrame {
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameFieldActionPerformed(evt);
-            }
-        });
-
-        passwordField.setText("Password");
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
             }
         });
 
@@ -136,25 +129,17 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/key.png"))); // NOI18N
         jLabel2.setText("jLabel1");
 
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                            .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(usernameField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(passwordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
-                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(controlPanelLayout.createSequentialGroup()
@@ -165,18 +150,37 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(controlLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                        .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(6, 6, 6)
+                                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 44, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                                .addComponent(btnLogout)
+                                .addGap(36, 36, 36)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
         );
 
-        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {passwordField, usernameField});
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, usernameField});
 
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(16, 16, 16)
                 .addComponent(btnLogout)
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addComponent(controlLabel)
                 .addGap(76, 76, 76)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -184,8 +188,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
@@ -195,7 +199,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(322, Short.MAX_VALUE))
         );
 
-        controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {passwordField, usernameField});
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jPasswordField1});
 
         splitPanel.setLeftComponent(controlPanel);
 
@@ -213,14 +217,10 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String username = this.usernameField.getText();
-        String password = this.passwordField.getText();
+        String password = this.jPasswordField1.getText();
         LoginService registrationService = new LoginService();
 
         Person res = registrationService.validate(username, password);
@@ -247,7 +247,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             System.out.println(patient.getName()+"patient");
             this.usernameField.setText(patient.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             PatientPanel pl = new PatientPanel(patient, this.splitPanel);
             this.splitPanel.setRightComponent(pl);
 
@@ -261,7 +261,7 @@ public class MainFrame extends javax.swing.JFrame {
             DoctorPanel docpanel = new DoctorPanel(doc,this.splitPanel);
             System.out.println(doc);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Manufacturer")) {
             ManufacturerService ds = new ManufacturerService();
@@ -273,7 +273,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             ManufacturerPanel docpanel = new ManufacturerPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Pharmacy Admin")) {
             PharmacyAdminService ds = new PharmacyAdminService();
@@ -285,7 +285,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(doc.getName()+doc.getId());
             PharmacyAdminPanel docpanel = new PharmacyAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Planning Admin")) {
             PlanningAdminService ds = new PlanningAdminService();
@@ -296,7 +296,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             PlanningAdminPanel docpanel = new PlanningAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Revenue Admin")) {
             RevenueAdminService ds = new RevenueAdminService();
@@ -309,7 +309,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(userId);
             RevenueAdminPanel docpanel = new RevenueAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Hospital Admin")) {
             HospitalAdminService ds = new HospitalAdminService();
@@ -321,7 +321,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(doc);
             HospitalAdminPanel docpanel = new HospitalAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Reporter")) {
             ReporterService ds = new ReporterService();
@@ -332,7 +332,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             ReporterPanel docpanel = new ReporterPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Forecast Org Admin")) {
             ForecastOrgAdminService ds = new ForecastOrgAdminService();
@@ -343,7 +343,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             ForecastOrgAdminPanel docpanel = new ForecastOrgAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("LabAdmin")) {
             LabAdminService ds = new LabAdminService();
@@ -354,7 +354,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             LabAdminPanel docpanel = new LabAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("Pharmaceutical Admin")) {
             PharmaceuticalAdminService ds = new PharmaceuticalAdminService();
@@ -365,7 +365,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             PharmaceuticalAdminPanel docpanel = new PharmaceuticalAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         } else if(this.userType.equals("System Admin")) {
             SystemAdminService ds = new SystemAdminService();
@@ -376,7 +376,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             SystemAdminPanel docpanel = new SystemAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
-            this.passwordField.setText("");
+            this.jPasswordField1.setText("");
             this.splitPanel.setRightComponent(docpanel);
         }
 //        else if(this.userType.equals("Lab Admin")) {
@@ -435,6 +435,10 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -478,8 +482,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel newuserLabel;
-    private javax.swing.JTextField passwordField;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
