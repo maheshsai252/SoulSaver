@@ -75,7 +75,7 @@ For each Enterprise, we have respective admins who can manage the workflow.
 ![Pharmacy diagram](./screenshots/Pharmacy.png)
 
 
-![flow diagram](./screenshots/image.jpeg)
+![flow diagram](./screenshots/image.jpg)
 
 
 
