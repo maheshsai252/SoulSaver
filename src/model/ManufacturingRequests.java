@@ -97,7 +97,7 @@ public class ManufacturingRequests {
 
             ManufacturerService ds = new ManufacturerService();
             this.manfacturer = ds.getManufacturer(this.manufacturer_id);
-
+            System.out.println("getting manufacturer" + manufacturer_id+manfacturer);
             return this.manfacturer;
         }
         return this.manfacturer;

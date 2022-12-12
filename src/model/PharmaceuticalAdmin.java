@@ -16,7 +16,7 @@ public class PharmaceuticalAdmin extends Person {
     }
     
     public PharmaceuticalAdmin(String id, String name, String email,String password) {
-        super(id,name, password, email, "Pharmaceutical Admin");
+        super(id,name, email,password, "Pharmaceutical Admin");
 
     }
 }

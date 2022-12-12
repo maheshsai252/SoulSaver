@@ -33,7 +33,7 @@ public class ManufacturingDepartment {
     }
     @Override
     public String toString() {
-        return name;
+        return id;
     }
     public void setId(String id) {
         this.id = id;
