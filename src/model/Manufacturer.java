@@ -74,4 +74,5 @@ public class Manufacturer extends Person {
     public String toString() {
         return name;
     }
+
 }
