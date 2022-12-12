@@ -10,31 +10,28 @@ import java.util.UUID;
  *
  * @author maheshsai
  */
-public class Manufacturer extends Person {
-   
-    String manufacturingdepartment_id;
+public class Pharmacy {
+    String id;
     String address;
-    public String getManufacturingdepartment_id() {
-        return manufacturingdepartment_id;
+    String email;
+    String name;
+    String pharmaceutical_id;
+
+    public String getPharmaceutical_id() {
+        return pharmaceutical_id;
     }
 
-    public void setManufacturingdepartment_id(String manufacturingdepartment_id) {
-        this.manufacturingdepartment_id = manufacturingdepartment_id;
+    public void setPharmaceutical_id(String pharmaceutical_id) {
+        this.pharmaceutical_id = pharmaceutical_id;
+    }
+    public Pharmacy(String id, String address, String email, String name, String pharmaceutical_id) {
+        this.id = id;
+        this.address = address;
+        this.email = email;
+        this.name = name;
+        this.pharmaceutical_id = pharmaceutical_id;
     }
     
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public Manufacturer(String id, String address, String email, String name, String password) {
-        super(id,name,email,password,"Manufacturer");
-
-        this.address = address;
-       
-    }
     public String getEmail() {
         return email;
     }
@@ -42,9 +39,14 @@ public class Manufacturer extends Person {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Manufacturer(String name, String password, String email) {
-        super(name,password,email,"Manufacturer");
+    public Pharmacy(String name, String address, String email,String pharmaceutical_id) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
         this.id = UUID.randomUUID().toString();
+                this.pharmaceutical_id = pharmaceutical_id;
+
+
     }
 
     public String getName() {
@@ -70,9 +72,14 @@ public class Manufacturer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public Pharmacy(String address, String email) {
+        this.address = address;
+        this.email = email;
+    }
     @Override
     public String toString() {
-        return name;
+        return this.email;
     }
-
+    
 }
