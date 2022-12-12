@@ -52,7 +52,7 @@ For each Enterprise, we have respective admins who can manage the workflow.
 
 # Class Diagram
 
-![class diagram](./screenshots/class.png)
+![class diagram](./screenshots/Class Diagram.png)
 
 # Sequence diagrams
 
