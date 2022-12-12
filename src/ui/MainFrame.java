@@ -241,6 +241,10 @@ public class MainFrame extends javax.swing.JFrame {
         if(this.userType.equals("Patient")) {
             PatientService p = new PatientService();
             Patient patient = p.getPatient(this.userId);
+            if(patient == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             System.out.println(patient.getName()+"patient");
             this.usernameField.setText(patient.getName());
             this.passwordField.setText("");
@@ -250,6 +254,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Doctor")) {
             DoctorService ds = new DoctorService();
             Doctor doc = ds.getDoctor(userId);
+            if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             DoctorPanel docpanel = new DoctorPanel(doc,this.splitPanel);
             System.out.println(doc);
             this.usernameField.setText(doc.getName());
@@ -259,6 +267,10 @@ public class MainFrame extends javax.swing.JFrame {
             ManufacturerService ds = new ManufacturerService();
             System.out.println(userId);
             Manufacturer doc = ds.getManufacturer(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             ManufacturerPanel docpanel = new ManufacturerPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -266,6 +278,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Pharmacy Admin")) {
             PharmacyAdminService ds = new PharmacyAdminService();
             PharmacyAdmin doc = ds.getPhrmacyAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             System.out.println(doc.getName()+doc.getId());
             PharmacyAdminPanel docpanel = new PharmacyAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
@@ -274,6 +290,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Planning Admin")) {
             PlanningAdminService ds = new PlanningAdminService();
             PlanningAdmin doc = ds.getPlanningAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             PlanningAdminPanel docpanel = new PlanningAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -281,6 +301,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Revenue Admin")) {
             RevenueAdminService ds = new RevenueAdminService();
             RevenueAdmin doc = ds.getRevenueAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             System.out.println(doc);
             System.out.println(userId);
             RevenueAdminPanel docpanel = new RevenueAdminPanel(doc,this.splitPanel);
@@ -290,6 +314,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Hospital Admin")) {
             HospitalAdminService ds = new HospitalAdminService();
             HospitalAdmin doc = ds.getHospitalAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             System.out.println(doc);
             HospitalAdminPanel docpanel = new HospitalAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
@@ -298,6 +326,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Reporter")) {
             ReporterService ds = new ReporterService();
             Reporter doc = ds.getReporter(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             ReporterPanel docpanel = new ReporterPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -305,6 +337,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Forecast Org Admin")) {
             ForecastOrgAdminService ds = new ForecastOrgAdminService();
             ForecastOrgAdmin doc = ds.getForecastOrgAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             ForecastOrgAdminPanel docpanel = new ForecastOrgAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -312,6 +348,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("LabAdmin")) {
             LabAdminService ds = new LabAdminService();
             LabAdmin doc = ds.getLabAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             LabAdminPanel docpanel = new LabAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -319,6 +359,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("Pharmaceutical Admin")) {
             PharmaceuticalAdminService ds = new PharmaceuticalAdminService();
             PharmaceuticalAdmin doc = ds.getPharmaceuticalAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             PharmaceuticalAdminPanel docpanel = new PharmaceuticalAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");
@@ -326,6 +370,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else if(this.userType.equals("System Admin")) {
             SystemAdminService ds = new SystemAdminService();
             SystemAdmin doc = ds.getSystemAdmin(userId);
+             if(doc == null ) {
+                 JOptionPane.showMessageDialog(this, "Failure: User doesn't exist");
+                return;
+            }
             SystemAdminPanel docpanel = new SystemAdminPanel(doc,this.splitPanel);
             this.usernameField.setText(doc.getName());
             this.passwordField.setText("");

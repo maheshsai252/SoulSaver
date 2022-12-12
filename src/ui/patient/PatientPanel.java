@@ -21,7 +21,7 @@ import ui.event.RegisterEventPanel;
 
 /**
  *
- * @author madhav
+ * @author maheshsai
  */
 public class PatientPanel extends javax.swing.JPanel {
 
@@ -58,6 +58,7 @@ public class PatientPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         btnBuyMedicine1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 204));
 
@@ -103,7 +104,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Actions");
+        jLabel3.setText("Search Hospitals and Medicine ");
 
         btnBuyMedicine.setForeground(new java.awt.Color(0, 0, 0));
         btnBuyMedicine.setText("Buy Medicine");
@@ -128,12 +129,15 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Register Event");
+        jButton4.setText("View Events");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Encounters and Vital Signs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,41 +151,54 @@ public class PatientPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(199, 199, 199)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuyMedicine1)
-                            .addComponent(jButton3))
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(btnBuyMedicine)
-                            .addComponent(btnViewHistory))))
-                .addContainerGap(207, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton3)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(64, 64, 64)
+                                .addComponent(jButton4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBuyMedicine1)
+                                    .addComponent(btnVitalSignsHistory))
+                                .addGap(80, 80, 80)
+                                .addComponent(btnViewHistory)))))
+                .addContainerGap(178, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBuyMedicine)
+                .addGap(234, 234, 234))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(197, 197, 197)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnUpdateAddress)
                         .addComponent(jLabel2)
-                        .addComponent(jLabel3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearchDocs)
-                            .addComponent(btnVitalSignsHistory)))
+                        .addComponent(btnSearchDocs))
                     .addContainerGap(438, Short.MAX_VALUE)))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBuyMedicine, btnBuyMedicine1, btnSearchDocs, btnViewHistory, btnVitalSignsHistory});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBuyMedicine, btnBuyMedicine1, btnSearchDocs, btnViewHistory, btnVitalSignsHistory, jButton3, jButton4});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
-                .addComponent(btnViewHistory)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuyMedicine)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuyMedicine1)
-                    .addComponent(btnBuyMedicine))
-                .addGap(48, 48, 48)
+                    .addComponent(btnVitalSignsHistory)
+                    .addComponent(btnViewHistory))
+                .addGap(28, 28, 28)
+                .addComponent(btnBuyMedicine1)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -192,16 +209,12 @@ public class PatientPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addGap(18, 18, 18)
                     .addComponent(btnUpdateAddress)
-                    .addGap(26, 26, 26)
-                    .addComponent(jLabel3)
-                    .addGap(18, 18, 18)
+                    .addGap(61, 61, 61)
                     .addComponent(btnSearchDocs)
-                    .addGap(42, 42, 42)
-                    .addComponent(btnVitalSignsHistory)
-                    .addContainerGap(271, Short.MAX_VALUE)))
+                    .addContainerGap(336, Short.MAX_VALUE)))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuyMedicine, btnBuyMedicine1, btnSearchDocs, btnViewHistory, btnVitalSignsHistory});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuyMedicine, btnBuyMedicine1, btnSearchDocs, btnViewHistory, btnVitalSignsHistory, jButton3, jButton4});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -222,7 +235,7 @@ public class PatientPanel extends javax.swing.JPanel {
     private void btnSearchDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDocsActionPerformed
         // TODO add your handling code here:
 //        NearbyDoctorsPanel ndp = new NearbyDoctorsPanel(this.user,this.mainPanel,this.al);
-//        new MailService().actionPerformed("test","test","madhav252@gmail.com","madhav252@gmail.com");
+//        new MailService().actionPerformed("test","test","maheshsai252@gmail.com","maheshsai252@gmail.com");
         NearbyHospitalListPanel panel = new NearbyHospitalListPanel(this.mainPanel, this.al);
         this.al.add(this);
         this.mainPanel.setRightComponent(panel);
@@ -279,5 +292,6 @@ public class PatientPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
