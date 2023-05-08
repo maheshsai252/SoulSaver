@@ -16,7 +16,7 @@ public class MailService {
     private class SMTPAuthenticator extends javax.mail.Authenticator {
 
     public PasswordAuthentication getPasswordAuthentication() {
-      return new PasswordAuthentication("maheshsai252@gmail.com", "dgancgjrnksxwmxw");
+      return new PasswordAuthentication("maheshsai252@gmail.com", "<password>");
     }
   }
     public void actionPerformed(String subject, String text, String from, String to) {
